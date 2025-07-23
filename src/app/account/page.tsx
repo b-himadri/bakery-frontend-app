@@ -35,6 +35,7 @@ const [addresses, setAddresses] = useState<any[]>([]); // To store fetched addre
 const [addressLoading, setAddressLoading] = useState(true);
 const [addressError, setAddressError] = useState<string | null>(null);
 const [showAddressForm, setShowAddressForm] = useState(false); // To show/hide add/edit form
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const [editingAddress, setEditingAddress] = useState<any | null>(null); // To store address being edited
 const [addressFormData, setAddressFormData] = useState({ // Form fields
   addressLine1: '',
@@ -126,7 +127,7 @@ const fetchAddresses = async () => {
   }
 };
 
-// --- NEW useEffect: Fetch orders when 'orders' section is active ---
+// eslint-disable-next-line react-hooks/exhaustive-deps
 useEffect(() => {
   if (user && !userLoading && currentSection === 'orders') {
     fetchOrders();
@@ -280,7 +281,6 @@ const handleSetDefaultAddress = async (addressId: string) => {
       return;
     }
 
-    // Password validation only if any password field is touched
     if (oldPassword || newPassword || confirmPassword) {
       if (!oldPassword || !newPassword || !confirmPassword) {
         showProfileMessage(
@@ -600,8 +600,10 @@ const handleSetDefaultAddress = async (addressId: string) => {
                     <p className="text-gray-600 text-sm">Placed on: {new Date(order.createdAt).toLocaleDateString()}</p>
                     <div className="mt-2 text-sm text-gray-600">
                       <p><strong>Items:</strong></p>
+        
                       <ul className="list-disc list-inside ml-4">
-                        {order.items.map((item: any) => ( // Using any here, consider defining OrderItem interface if not already
+                        
+                        {order.items.map((item: any) => ( 
                           <li key={item._id}>{item.name} x {item.quantity} (Rs. {item.price.toFixed(2)})</li>
                         ))}
                       </ul>
