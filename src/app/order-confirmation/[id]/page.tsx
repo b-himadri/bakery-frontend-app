@@ -51,9 +51,7 @@ export default function OrderConfirmationPage() {
   // --- Authentication Gate ---
   useEffect(() => {
     if (!user && !userLoading) {
-      // If not logged in, redirect to login page.
-      // We don't have a direct way to return to this specific order after login,
-      // so we might just send them to dashboard or order history.
+ 
       router.push('/login');
     }
   }, [user, userLoading, router]);

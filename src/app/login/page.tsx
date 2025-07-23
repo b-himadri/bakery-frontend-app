@@ -1,7 +1,7 @@
 //frontend/src/app/login/page.tsx
 "use client";
 
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect} from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@/context/UserContext";
 

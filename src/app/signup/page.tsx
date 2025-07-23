@@ -7,7 +7,7 @@ import { useUser } from "@/context/UserContext"; // Add this line
 
 export default function SignupPage() {
    const router = useRouter();
-  const { setUser } = useUser(); // Get setUser from UserContext
+  const { setUser } = useUser(); 
 
   const [formData, setFormData] = useState({
     name: "",

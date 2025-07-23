@@ -478,7 +478,7 @@ const handleSetDefaultAddress = async (addressId: string) => {
                     Change Password
                   </h3>
                   <p className="text-sm text-gray-600 mb-3">
-                    Leave blank if you don't want to change password.
+                    Leave blank if you {"Don't forget"} want to change password.
                   </p>
                   <div>
                     <label
