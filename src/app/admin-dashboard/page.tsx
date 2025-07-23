@@ -877,9 +877,9 @@ function AdminPage() {
             <h3 className="text-2xl font-bold text-amber-800 mb-4 text-center md:text-left">
               Admin Menu
             </h3>
-            <p className="text-neutral-700 mb-4 text-center md:text-left">
+            <h3 className="text-neutral-700 mb-4 text-center md:text-left">
               Welcome, {user?.name}!
-            </p>
+            </h3>
             <ul className="flex flex-col gap-2">
               <li>
                 <button
