@@ -1,7 +1,7 @@
 // frontend/src/app/account/page.tsx
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useUser } from "@/context/UserContext";
 import { CartProvider } from "@/context/CartContext";
@@ -25,12 +25,8 @@ function AccountPage() {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [profileMessage, setProfileMessage] = useState({ text: "", type: "" });
-  // --- END NEW STATES ---
 
-  // --- NEW STATES FOR ADDRESS MANAGEMENT ---
-// These new states need to be added directly inside the AccountPage component,
-// alongside your existing profile editing states (isEditingProfile, profileName, etc.)
-// For example, right after the profile editing states, or within a new dedicated section.
+
 const [addresses, setAddresses] = useState<any[]>([]); // To store fetched addresses
 const [addressLoading, setAddressLoading] = useState(true);
 const [addressError, setAddressError] = useState<string | null>(null);
@@ -796,7 +792,9 @@ const handleSetDefaultAddress = async (addressId: string) => {
 export default function AccountPageWrapper() {
   return (
     <CartProvider>
-      <AccountPage />
+      <Suspense>
+  <AccountPage />
+      </Suspense>
       <CartSidebar />
     </CartProvider>
   );
