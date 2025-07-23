@@ -1,14 +1,25 @@
+// SearchBar.tsx (or SearchBar.jsx if you're still using JS but want TS type checking)
 "use client";
 
-import React from "react";
+import React, { ChangeEvent, FormEvent } from "react";
 
-export default function SearchBar({ searchTerm, setSearchTerm }) {
-  const handleSearchChange = (e) => {
+// 1. Define an interface for the component's props
+interface SearchBarProps {
+  searchTerm: string;
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+}
+
+// 2. Use the interface to type the props
+export default function SearchBar({ searchTerm, setSearchTerm }: SearchBarProps) {
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
 
-  const handleSearchSubmit = (e) => {
+  const handleSearchSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    // In a real application, you'd likely trigger a search here
+    // For example, calling an API or filtering a list
+    console.log("Searching for:", searchTerm);
   };
 
   return (
